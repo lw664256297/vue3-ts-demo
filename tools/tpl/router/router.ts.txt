@@ -1,0 +1,27 @@
+/**
+ * ${routerName}
+ * @author ${username}
+ * @date ${curDate}
+ * @since ${version}
+ */
+import { IRouterConfigCustom } from "../../typings/interface";
+
+function getView(name: string) {
+  return (
+    resolve: (arg0: any) => void,
+    reject: ((err: any) => void) | undefined
+  ) => {
+    require.ensure(
+      [],
+      require => {
+        resolve(require(`@/views/${name}/index.ts`));
+      },
+      reject,
+      "${routerName}"
+    );
+  };
+}
+
+let routes: IRouterConfigCustom[] = []
+
+export default routes
