@@ -1,4 +1,5 @@
 module.exports = {
+    lintOnSave:false,
     devServer: {
         proxy: {
             // 请求代理服务器
